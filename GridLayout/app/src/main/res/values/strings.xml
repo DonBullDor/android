@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GridLayout</string>
+    <string name="a1">A1</string>
+    <string name="b1">B1</string>
+    <string name="c1">C1</string>
+    <string name="a2">A2</string>
+    <string name="b2">B2</string>
+    <string name="c2">C2</string>
+    <string name="a3">A3</string>
+    <string name="b3">B3</string>
+    <string name="c3">C3</string>
+</resources>
