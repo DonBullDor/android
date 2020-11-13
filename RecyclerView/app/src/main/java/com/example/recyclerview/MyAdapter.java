@@ -18,6 +18,7 @@ public class MyAdapter extends
         nameList = list;
     }
 
+    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int
             viewType) {

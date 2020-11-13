@@ -16,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        makeRecyclerViewList();
+    }
+
+    public void makeRecyclerViewList() {
         List<String> list = new ArrayList<>();
         list.add("China");
         list.add("France");
