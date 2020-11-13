@@ -52,6 +52,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>
                 onSelect();
             }
         });
+        holder.itemView.setSelected(selectedList.get(position, false));
     }
 
     @Override
