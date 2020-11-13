@@ -1,5 +1,7 @@
 package com.example.recyclerview;
 
+import android.annotation.SuppressLint;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,33 +12,44 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MyAdapter extends
-        RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private List<String> nameList;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>
+        implements SelectMode {
 
-    public MyAdapter(List<String> list) {
+    private SelectMode mListener;
+    private List<String> nameList;
+    //Added following list
+    @SuppressLint("UseSparseArrays")
+    private SparseArray<Boolean> selectedList = new SparseArray<>();
+
+    public MyAdapter(List<String> list, SelectMode listener) { //Added listener to parameters
         nameList = list;
+        mListener = listener;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int
-            viewType) {
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.item, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder,
-                                 final int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         final String name = nameList.get(position);
         holder.textView.setText(name);
+        holder.itemView.setSelected(selectedList.get(position, false)); //New (for There's more)
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                remove(position);
+                holder.itemView.setSelected(!holder.itemView.isSelected());
+                if (holder.itemView.isSelected()) {
+                    selectedList.put(position, true);
+                } else {
+                    selectedList.remove(position);
+                }
+                onSelect();
             }
         });
     }
@@ -50,6 +63,31 @@ public class MyAdapter extends
         }
     }
 
+    private void remove(int position) {
+        nameList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    //New method
+    public void deleteAllSelected() {
+        if (selectedList.size() == 0) {
+            return;
+        }
+        for (int index = nameList.size() - 1; index >= 0; index--) {
+            if (selectedList.get(index, false)) {
+                remove(index);
+            }
+        }
+        selectedList.clear();
+    }
+
+    @Override
+    public void onSelect() {
+        if (mListener != null) {
+            mListener.onSelect();
+        }
+    }
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView textView;
 
@@ -57,10 +95,5 @@ public class MyAdapter extends
             super(itemVieww);
             textView = itemView.findViewById(R.id.textView);
         }
-    }
-
-    private void remove(int position) {
-        nameList.remove(position);
-        notifyItemRemoved(position);
     }
 }
