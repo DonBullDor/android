@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CreateFragment</string>
+    <string name="fragment_one">Fragment One</string>
+    <string name="text_view">text view</string>
+</resources>
