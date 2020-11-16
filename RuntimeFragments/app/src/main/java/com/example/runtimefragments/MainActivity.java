@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentOne mFragmentOne;
     FragmentTwo mFragmentTwo;
-    int showingFragment=0;
+    int showingFragment = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,23 +22,17 @@ public class MainActivity extends AppCompatActivity {
 
         mFragmentOne = new FragmentOne();
         mFragmentTwo = new FragmentTwo();
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.add(R.id.frameLayout, mFragmentOne);
-//        fragmentTransaction.commit();
         getFragmentManager().beginTransaction().add(R.id.frameLayout, mFragmentOne).commit();
-        showingFragment=1;
+        showingFragment = 1;
     }
 
-    @SuppressLint("CommitTransaction")
     public void switchFragment(View view) {
-        if (showingFragment==1) {
+        if (showingFragment == 1) {
             getFragmentManager().beginTransaction().replace(R.id.frameLayout, mFragmentTwo).commit();
             showingFragment = 2;
         } else {
             getFragmentManager().beginTransaction().replace(R.id.frameLayout, mFragmentOne).commit();
-            showingFragment=1;
+            showingFragment = 1;
         }
-
     }
 }
