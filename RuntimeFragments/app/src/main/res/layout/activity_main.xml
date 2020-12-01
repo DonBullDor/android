@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+step5
+Now we need to add a container to show the fragments it's like a placeholder
+and a button to the Main Activity layout.
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<!--
+fragments will show here when we click the switch button
+-->
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -19,5 +26,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:onClick="switchFragment"
-        android:text="@string/switch" />
+        android:text="switch" />
 </RelativeLayout>

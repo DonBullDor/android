@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- RelativeLayout allows Views to be positionrelative to each other
+and the parent. RelativeLayout is particularly useful for reducing
+the number of nested layouts, which is very important for reducing
+memory and processing requirements.
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,7 +15,18 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/centered" />
-
+<!-- The most commonly used RelativeLayout layout attributes include the following:
+layout_below: This View should be below the View specified.
+layout_above: This View should be above the View specified.
+layout_alignParentTop: Align this View to the top edge of the parent.
+layout_alignParentBottom: Align this View to the bottom edge of the parent.
+layout_alignParentLeft: Align this View to the left edge of the parent.
+layout_alignParentRight: Align this View to the right edge of the parent.
+layout_centerVertical: Center this View vertically within the parent.
+layout_centerHorizontal: Center this View horizontally within the parent.
+layout_center: Center this View both horizontally and vertically within the
+parent.
+-->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

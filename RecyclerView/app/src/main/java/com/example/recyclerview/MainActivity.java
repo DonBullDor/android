@@ -23,8 +23,9 @@ public class MainActivity extends AppCompatActivity implements SelectMode {
     }
 
     MyAdapter myAdapter;
-
+    // filling the RecylerView
     public void makeRecyclerViewList() {
+        // creating a list of items
         List<String> list = new ArrayList<>();
         list.add("China");
         list.add("France");
@@ -33,11 +34,56 @@ public class MainActivity extends AppCompatActivity implements SelectMode {
         list.add("Russia");
         list.add("United Kingdom");
         list.add("United States");
+        list.add("China");
+        list.add("France");
+        list.add("Germany");
+        list.add("India");
+        list.add("Russia");
+        list.add("United Kingdom");
+        list.add("United States");
+        list.add("China");
+        list.add("France");
+        list.add("Germany");
+        list.add("India");
+        list.add("Russia");
+        list.add("United Kingdom");
+        list.add("United States");
+        list.add("China");
+        list.add("France");
+        list.add("Germany");
+        list.add("India");
+        list.add("Russia");
+        list.add("United Kingdom");
+        list.add("United States");
+        list.add("China");
+        list.add("France");
+        list.add("Germany");
+        list.add("India");
+        list.add("Russia");
+        list.add("United Kingdom");
+        list.add("United States");
+        list.add("China");
+        list.add("France");
+        list.add("Germany");
+        list.add("India");
+        list.add("Russia");
+        list.add("United Kingdom");
+        list.add("United States");
+        list.add("China");
+        list.add("France");
+        list.add("Germany");
+        list.add("India");
+        list.add("Russia");
+        list.add("United Kingdom");
+        list.add("United States");
+        //get the RecyclerView widget
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
 
-        LinearLayoutManager linearLayoutManager = new
-                LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        /*  Want your list to scroll sideways instead?
+        You can easily accomplish this by using LinearLayoutManager.HORIZONTAL in the
+        setOrientation() call. */
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         myAdapter = new MyAdapter(list, this);

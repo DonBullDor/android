@@ -6,6 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/*
+step4
+same as the FragmentOne class
+ */
 public class FragmentTwo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,

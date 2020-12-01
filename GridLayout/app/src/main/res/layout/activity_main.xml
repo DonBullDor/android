@@ -1,3 +1,8 @@
+<!-- With
+TableLayout, rows and columns are added dynamically as you build
+the table. With GridLayout, row and column sizes are defined
+in the layout definition.
+-->
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

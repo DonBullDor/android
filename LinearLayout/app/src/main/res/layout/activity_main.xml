@@ -1,3 +1,6 @@
+<!-- LinearLayout arranges the child Views in a
+single column or single row
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,6 +23,13 @@
         android:importantForAutofill="no"
         android:inputType="text" />
 
+    <!-- When using LinearLayout, it tells Android to calculate
+    the height based on the weight. A weight of 0 (the default
+    if not specified) indicates the View should not expand. In this
+    example, editTextMessage is the only View defined with a weight,
+    so it alone will expand to fill any remaining space in the parent
+    layout. -->
+
     <EditText
         android:id="@+id/editTextMessage"
         android:layout_width="match_parent"
@@ -29,4 +39,11 @@
         android:hint="@string/message"
         android:importantForAutofill="no"
         android:inputType="text" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="Autofill,LabelFor,TextFields">
+    </EditText>
+
 </LinearLayout>
